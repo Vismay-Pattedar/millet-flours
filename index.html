@@ -593,14 +593,14 @@ footer { background: var(--black); border-top: 1px solid var(--line-d); color: v
         <div class="rv" style="--i: 3"><h3>Ground</h3><p>Milled once it has cooled, sieved, and packed the same day.</p></div>
       </div>
     </div>
-    <figure class="method-img px rv-clip" id="flick" data-px=".7" style="background-image: url(data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAADQBACdASoUABQAPrVMnksnJCKhqA1Q4BaJYwDDNA69zn5fGZ3C+xsu5KFe1HuiqAD56w15fBC0gHBWB+OfLf366yid+uuwthyk7FStAPjA7l6CRlyVMoKKEZMCXULKl7RKut0JU2KxgIK9pb8RsHHN6sBp9ROipNUAah9YfdoUPtq0hLnmz4s24cXKa+MUFG55jMpHVVMgPn9GppqDibCW54AAAA==)">
-      <img class="on" src="img/rice-brass.webp" alt="Each grain in turn: whole grain in a brass tumbler beside a brass bowl of its flour" data-id="rice">
-      <img data-src="img/wheat-brass.webp" data-m="img/wheat-brass-m.webp" alt="" data-id="wheat">
-      <img data-src="img/little-millet-brass.webp" data-m="img/little-millet-brass-m.webp" alt="" data-id="little-millet">
-      <img data-src="img/sorghum-brass.webp" data-m="img/sorghum-brass-m.webp" alt="" data-id="sorghum">
-      <img data-src="img/foxtail-brass.webp" data-m="img/foxtail-brass-m.webp" alt="" data-id="foxtail">
+    <figure class="method-img px rv-clip" id="flick" data-px=".7" style="background-image: url(data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACwBACdASoUABQAPrVMn0qnJCKhqA1Q4BaJYwCo9A2rwc2mMSG28fiZGehWWS6gAPnrDdGg8F4MsslVE8GQ9AoxvJHZ/H8pTAPXx1QR6EwKoALaywxucvGDzcFqRQZCAbFtjXHuZUbc5/32SQ5agjmd+Q+Uqjhw7MuR+e1/um/upZpBMo4yZZsV/r1P0+0dtLbmY2i0SLtAvsBAAAA=)">
+      <picture><source media="(max-width: 860px)" srcset="img/ragi-brass-m.webp"><img class="on" src="img/ragi-brass.webp" alt="Each grain in turn: whole grain in a brass tumbler beside a brass bowl of its flour" data-id="ragi"></picture>
       <img data-src="img/pearl-millet-brass.webp" data-m="img/pearl-millet-brass-m.webp" alt="" data-id="pearl-millet">
-      <img data-src="img/ragi-brass.webp" data-m="img/ragi-brass-m.webp" alt="" data-id="ragi">
+      <img data-src="img/foxtail-brass.webp" data-m="img/foxtail-brass-m.webp" alt="" data-id="foxtail">
+      <img data-src="img/sorghum-brass.webp" data-m="img/sorghum-brass-m.webp" alt="" data-id="sorghum">
+      <img data-src="img/little-millet-brass.webp" data-m="img/little-millet-brass-m.webp" alt="" data-id="little-millet">
+      <img data-src="img/wheat-brass.webp" data-m="img/wheat-brass-m.webp" alt="" data-id="wheat">
+      <img data-src="img/rice-brass.webp" data-m="img/rice-brass-m.webp" alt="" data-id="rice">
     </figure>
   </section>
 
@@ -637,43 +637,43 @@ footer { background: var(--black); border-top: 1px solid var(--line-d); color: v
 (function () {
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Ordered light to dark.
+  // Display order: ragi first (its red stands out), wheat and rice last.
   var FLOURS = [
-    { id: "rice", name: "Rice", sub: "Rice flour", grain: "rice",
-      names: { Hindi: "चावल", Kannada: "ಅಕ್ಕಿ", Tamil: "அரிசி", Telugu: "బియ్యం" }, tick: "Tamil",
-      taste: "Soft, white and neutral. It fries crisp and steams soft.",
-      uses: "Akki rotti, pathiri, kozhukattai and modak, murukku, and crisp batters.",
-      gluten: "Gluten-free grain.", sizes: [["500 g", 70], ["1 kg", 130]] },
-    { id: "wheat", name: "Wheat", sub: "Whole wheat atta", grain: "wheat",
-      names: { Hindi: "गेहूँ", Kannada: "ಗೋಧಿ", Tamil: "கோதுமை", Telugu: "గోధుమలు" }, tick: "Hindi",
-      taste: "Roasting gives everyday atta a toasted, biscuity smell.",
-      uses: "Phulka and chapati, paratha, atte ka sheera, atte ke laddoo and panjiri.",
-      gluten: "Contains gluten.", sizes: [["500 g", 60], ["1 kg", 110]] },
-    { id: "little-millet", name: "Little millet", sub: "Kutki, samai, saame", grain: "little millet",
-      names: { Hindi: "कुटकी", Kannada: "ಸಾಮೆ", Tamil: "சாமை", Telugu: "సామలు" }, tick: "Kannada",
-      taste: "Mild and a little sweet. The lightest of the millets.",
-      uses: "Dosa, rotti, porridge and laddoo.",
-      gluten: "Gluten-free grain.", sizes: [["500 g", 140], ["1 kg", 270]] },
-    { id: "sorghum", name: "Jowar", sub: "Sorghum flour", grain: "jowar",
-      names: { Hindi: "ज्वार", Kannada: "ಜೋಳ", Tamil: "சோளம்", Telugu: "జొన్నలు" }, tick: "Telugu",
-      taste: "Mild and slightly sweet. Rolls out soft while the dough is warm.",
-      uses: "Jowar bhakri, jolada rotti, thalipeeth and uttapam.",
-      gluten: "Gluten-free grain.", sizes: [["500 g", 80], ["1 kg", 150]] },
-    { id: "foxtail", name: "Foxtail millet", sub: "Kangni, thinai, navane", grain: "foxtail millet",
-      names: { Hindi: "कंगनी", Kannada: "ನವಣೆ", Tamil: "தினை", Telugu: "కొర్రలు" }, tick: "Tamil",
-      taste: "Light and nutty, with a golden colour once it's roasted.",
-      uses: "Dosa, adai, roti and laddoo.",
-      gluten: "Gluten-free grain.", sizes: [["500 g", 130], ["1 kg", 250]] },
+    { id: "ragi", name: "Ragi", sub: "Finger millet flour", grain: "ragi",
+      names: { Hindi: "रागी", Kannada: "ರಾಗಿ", Tamil: "கேழ்வரகு", Telugu: "రాగులు" }, tick: "Kannada",
+      taste: "Deep and earthy. It turns a dark cocoa brown when cooked.",
+      uses: "Ragi mudde, ragi dosa, ragi malt, rotti and laddoo.",
+      gluten: "Gluten-free grain.", sizes: [["500 g", 90], ["1 kg", 170]] },
     { id: "pearl-millet", name: "Bajra", sub: "Pearl millet flour", grain: "bajra",
       names: { Hindi: "बाजरा", Kannada: "ಸಜ್ಜೆ", Tamil: "கம்பு", Telugu: "సజ్జలు" }, tick: "Hindi",
       taste: "Strong and earthy. A winter flour, best with ghee and jaggery.",
       uses: "Bajre ki roti, bhakri, raab, thalipeeth and malida.",
       gluten: "Gluten-free grain.", sizes: [["500 g", 75], ["1 kg", 140]] },
-    { id: "ragi", name: "Ragi", sub: "Finger millet flour", grain: "ragi",
-      names: { Hindi: "रागी", Kannada: "ರಾಗಿ", Tamil: "கேழ்வரகு", Telugu: "రాగులు" }, tick: "Kannada",
-      taste: "Deep and earthy. It turns a dark cocoa brown when cooked.",
-      uses: "Ragi mudde, ragi dosa, ragi malt, rotti and laddoo.",
-      gluten: "Gluten-free grain.", sizes: [["500 g", 90], ["1 kg", 170]] }
+    { id: "foxtail", name: "Foxtail millet", sub: "Kangni, thinai, navane", grain: "foxtail millet",
+      names: { Hindi: "कंगनी", Kannada: "ನವಣೆ", Tamil: "தினை", Telugu: "కొర్రలు" }, tick: "Tamil",
+      taste: "Light and nutty, with a golden colour once it's roasted.",
+      uses: "Dosa, adai, roti and laddoo.",
+      gluten: "Gluten-free grain.", sizes: [["500 g", 130], ["1 kg", 250]] },
+    { id: "sorghum", name: "Jowar", sub: "Sorghum flour", grain: "jowar",
+      names: { Hindi: "ज्वार", Kannada: "ಜೋಳ", Tamil: "சோளம்", Telugu: "జొన్నలు" }, tick: "Telugu",
+      taste: "Mild and slightly sweet. Rolls out soft while the dough is warm.",
+      uses: "Jowar bhakri, jolada rotti, thalipeeth and uttapam.",
+      gluten: "Gluten-free grain.", sizes: [["500 g", 80], ["1 kg", 150]] },
+    { id: "little-millet", name: "Little millet", sub: "Kutki, samai, saame", grain: "little millet",
+      names: { Hindi: "कुटकी", Kannada: "ಸಾಮೆ", Tamil: "சாமை", Telugu: "సామలు" }, tick: "Kannada",
+      taste: "Mild and a little sweet. The lightest of the millets.",
+      uses: "Dosa, rotti, porridge and laddoo.",
+      gluten: "Gluten-free grain.", sizes: [["500 g", 140], ["1 kg", 270]] },
+    { id: "wheat", name: "Wheat", sub: "Whole wheat atta", grain: "wheat",
+      names: { Hindi: "गेहूँ", Kannada: "ಗೋಧಿ", Tamil: "கோதுமை", Telugu: "గోధుమలు" }, tick: "Hindi",
+      taste: "Roasting gives everyday atta a toasted, biscuity smell.",
+      uses: "Phulka and chapati, paratha, atte ka sheera, atte ke laddoo and panjiri.",
+      gluten: "Contains gluten.", sizes: [["500 g", 60], ["1 kg", 110]] },
+    { id: "rice", name: "Rice", sub: "Rice flour", grain: "rice",
+      names: { Hindi: "चावल", Kannada: "ಅಕ್ಕಿ", Tamil: "அரிசி", Telugu: "బియ్యం" }, tick: "Tamil",
+      taste: "Soft, white and neutral. It fries crisp and steams soft.",
+      uses: "Akki rotti, pathiri, kozhukattai and modak, murukku, and crisp batters.",
+      gluten: "Gluten-free grain.", sizes: [["500 g", 70], ["1 kg", 130]] }
   ];
   var LANG = { Hindi: "hi", Kannada: "kn", Tamil: "ta", Telugu: "te" };
 
