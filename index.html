@@ -61,7 +61,7 @@ section[id] { scroll-margin-top: 64px; }
 .js .rv-clip { clip-path: inset(100% 0 0 0); transition: clip-path 1.6s cubic-bezier(.7, 0, .2, 1); }
 .js .rv-clip.in, .rv-all .rv-clip { clip-path: inset(0 0 0 0); }
 .px { overflow: hidden; }
-.px img { transform: translate3d(0, var(--py, 0px), 0) scale(1.14); will-change: transform; }
+.px img { transform: translate3d(0, var(--py, 0px), 0) scale(1.14); }
 .dust { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 
 /* ---------- header ---------- */
@@ -165,10 +165,10 @@ section[id] { scroll-margin-top: 64px; }
 }
 .steps h3 { font-stretch: 75%; font-weight: 600; font-size: 2rem; line-height: 1; margin-bottom: 10px; }
 .steps p { font-size: 1rem; color: var(--fog); }
-.method-img { position: relative; min-height: 560px; }
-.method-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 24% 62%; opacity: 0; }
+.method-img { position: relative; min-height: 560px; background-color: #3b3732; background-position: center; background-size: cover; }
+.method-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 24% 62%; visibility: hidden; }
 /* The seven brass shots share one set-up, so a hard cut between them looks like the grain changing inside the same tumbler. */
-.method-img img.on { opacity: 1; }
+.method-img img.on { visibility: visible; }
 
 /* ---------- flours ---------- */
 .flours { background: var(--black); border-top: 1px solid var(--line-d); padding-block: clamp(64px, 8vw, 124px); }
@@ -340,6 +340,9 @@ footer { background: var(--black); border-top: 1px solid var(--line-d); color: v
   .method { grid-template-columns: minmax(0, 1fr); }
   .method-text { padding-left: var(--gutter); padding-right: var(--gutter); }
   .method-img { order: -1; min-height: 0; aspect-ratio: 1 / 1; }
+  .js .method-img.rv-clip { clip-path: none; opacity: 0; transition: opacity .9s ease; }
+  .js .method-img.rv-clip.in, .rv-all .method-img.rv-clip { opacity: 1; }
+  .method-img img { transform: none; }
   .steps { grid-template-columns: minmax(0, 1fr); gap: 22px; }
   .flours-head { grid-template-columns: minmax(0, 1fr); }
   .shop { grid-template-columns: minmax(0, 1fr); }
@@ -549,14 +552,14 @@ footer { background: var(--black); border-top: 1px solid var(--line-d); color: v
         <div class="rv" style="--i: 3"><h3>Ground</h3><p>Milled once it has cooled, sieved, and packed the same day.</p></div>
       </div>
     </div>
-    <figure class="method-img px rv-clip" id="flick" data-px=".7">
-      <img class="on" src="img/rice-brass.webp" alt="Each grain in turn: whole grain in a brass tumbler beside a brass bowl of its flour" data-id="rice" loading="lazy">
-      <img src="img/wheat-brass.webp" alt="" data-id="wheat" loading="lazy">
-      <img src="img/little-millet-brass.webp" alt="" data-id="little-millet" loading="lazy">
-      <img src="img/sorghum-brass.webp" alt="" data-id="sorghum" loading="lazy">
-      <img src="img/foxtail-brass.webp" alt="" data-id="foxtail" loading="lazy">
-      <img src="img/pearl-millet-brass.webp" alt="" data-id="pearl-millet" loading="lazy">
-      <img src="img/ragi-brass.webp" alt="" data-id="ragi" loading="lazy">
+    <figure class="method-img px rv-clip" id="flick" data-px=".7" style="background-image: url(data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAADQBACdASoUABQAPrVMnksnJCKhqA1Q4BaJYwDDNA69zn5fGZ3C+xsu5KFe1HuiqAD56w15fBC0gHBWB+OfLf366yid+uuwthyk7FStAPjA7l6CRlyVMoKKEZMCXULKl7RKut0JU2KxgIK9pb8RsHHN6sBp9ROipNUAah9YfdoUPtq0hLnmz4s24cXKa+MUFG55jMpHVVMgPn9GppqDibCW54AAAA==)">
+      <img class="on" src="img/rice-brass.webp" alt="Each grain in turn: whole grain in a brass tumbler beside a brass bowl of its flour" data-id="rice">
+      <img data-src="img/wheat-brass.webp" data-m="img/wheat-brass-m.webp" alt="" data-id="wheat">
+      <img data-src="img/little-millet-brass.webp" data-m="img/little-millet-brass-m.webp" alt="" data-id="little-millet">
+      <img data-src="img/sorghum-brass.webp" data-m="img/sorghum-brass-m.webp" alt="" data-id="sorghum">
+      <img data-src="img/foxtail-brass.webp" data-m="img/foxtail-brass-m.webp" alt="" data-id="foxtail">
+      <img data-src="img/pearl-millet-brass.webp" data-m="img/pearl-millet-brass-m.webp" alt="" data-id="pearl-millet">
+      <img data-src="img/ragi-brass.webp" data-m="img/ragi-brass-m.webp" alt="" data-id="ragi">
     </figure>
   </section>
 
@@ -816,8 +819,22 @@ footer { background: var(--black); border-top: 1px solid var(--line-d); color: v
     });
     return p.then(function () { return img.decode ? img.decode().catch(function () {}) : null; });
   }
-  // Start cutting only once every frame is decoded, so no cut lands on a blank.
-  Promise.all(Array.prototype.map.call(flickImgs, loaded)).then(function () { fReady = true; flickLoop(); });
+  // Frames 2-7 are fetched ahead of time (phone-size files on phones). Cutting starts only once every frame
+  // is decoded, so no cut lands on a blank; until then the first photo stays up.
+  var framesAsked = false;
+  function loadFrames() {
+    if (framesAsked) return;
+    framesAsked = true;
+    Promise.all(Array.prototype.map.call(flickImgs, function (img) {
+      if (img.dataset.src) img.src = (phone.matches && img.dataset.m) || img.dataset.src;
+      return loaded(img);
+    })).then(function () { fReady = true; flickLoop(); });
+  }
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (es, o) { if (es[0].isIntersecting) { loadFrames(); o.disconnect(); } },
+      { rootMargin: "1600px 0px" }).observe(document.getElementById("method"));
+  }
+  window.addEventListener("load", function () { setTimeout(loadFrames, 1500); });
   flick.addEventListener("pointerenter", function (e) { if (e.pointerType === "mouse") { fHover = true; flickLoop(); } });
   flick.addEventListener("pointerleave", function () { fHover = false; flickLoop(); });
   if ("IntersectionObserver" in window) {
