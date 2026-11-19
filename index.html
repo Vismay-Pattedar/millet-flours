@@ -1,0 +1,1132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Saat · Home-roasted flours</title>
+<meta name="description" content="Seven flours, roasted at home before they're ground: ragi, bajra, jowar, foxtail millet, little millet, wheat and rice.">
+<script>
+  document.documentElement.classList.add("js");
+  // If the main script never starts, show everything instead of leaving reveal blocks hidden.
+  setTimeout(function () { if (!window.__saatReady) document.documentElement.classList.add("rv-all"); }, 3000);
+</script>
+<link rel="preload" as="image" href="img/hero-wheat.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anek+Latin:wdth,wght@75..125,300..700&family=Anek+Devanagari:wght@400..600&family=Anek+Kannada:wght@400..600&family=Anek+Tamil:wght@400..600&family=Anek+Telugu:wght@400..600&display=swap">
+<style>
+:root {
+  /* Layout: 12-column editorial grid, full-bleed photography, hairline rules, hard edges.
+     The hero is a black studio: grain plants lit against black, flour dust drifting in the light.
+     Every section sits on the same black; hairlines separate them. Light fills mark what's selected. */
+  --black: #000;
+  --brass: #C9A458;
+  --flour: #EFEDE8;
+  --ink-2: #5E5852;
+  --fog: #A49D94;
+  --line-d: rgba(239, 237, 232, .14);
+  --sans: "Anek Latin", "Anek Devanagari", "Anek Kannada", "Anek Tamil", "Anek Telugu", "Segoe UI", system-ui, sans-serif;
+  --deva: "Anek Devanagari", "Anek Latin", "Nirmala UI", sans-serif;
+  --gutter: max(20px, 4vw);
+  --max: 1480px;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+*, *::before, *::after { box-sizing: border-box; border-radius: 0; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--black); color: var(--flour);
+  font-family: var(--sans); font-size: 17px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+img { display: block; max-width: 100%; }
+h1, h2, h3, h4, p, ol, ul, dl, dd, figure, fieldset { margin: 0; padding: 0; }
+ol, ul { list-style: none; }
+fieldset { border: 0; min-width: 0; }
+a { color: inherit; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; border-radius: 0; }
+:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+section[id] { scroll-margin-top: 64px; }
+.wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
+.label {
+  font-size: .74rem; font-weight: 500; font-stretch: 112%;
+  letter-spacing: .09em; text-transform: uppercase;
+}
+.tnum { font-variant-numeric: tabular-nums; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+/* ---------- motion helpers ---------- */
+.js .rv { opacity: 0; transform: translateY(40px); transition: opacity 1.1s var(--ease), transform 1.1s var(--ease); transition-delay: calc(var(--i, 0) * 90ms); }
+.js .rv.in, .rv-all .rv { opacity: 1; transform: none; }
+.js .rv-clip { clip-path: inset(100% 0 0 0); transition: clip-path 1.6s cubic-bezier(.7, 0, .2, 1); }
+.js .rv-clip.in, .rv-all .rv-clip { clip-path: inset(0 0 0 0); }
+.px { overflow: hidden; }
+.px img { transform: translate3d(0, var(--py, 0px), 0) scale(1.14); will-change: transform; }
+.dust { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+
+/* ---------- header ---------- */
+.top { position: sticky; top: 0; z-index: 20; background: var(--black); color: var(--flour); border-bottom: 1px solid var(--line-d); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 24px; }
+.mark {
+  display: flex; align-items: baseline; gap: .55rem; text-decoration: none; line-height: 1;
+  font-stretch: 75%; font-weight: 700; font-size: 1.8rem; letter-spacing: .03em; text-transform: uppercase;
+}
+.mark span { font-family: var(--deva); font-weight: 500; font-size: 1.15rem; color: var(--brass); letter-spacing: 0; }
+.top nav { display: flex; gap: clamp(18px, 2.4vw, 34px); font-size: .97rem; }
+.top nav a { text-decoration: none; color: #CFC9C0; transition: color .2s; position: relative; }
+.top nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .35s var(--ease); }
+.top nav a:hover { color: var(--flour); }
+.top nav a:hover::after { transform: scaleX(1); transform-origin: left; }
+.top nav .nav-order { color: var(--brass); }
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  background: var(--black); color: var(--flour);
+  min-height: clamp(640px, calc(100svh - 64px), 1040px);
+}
+.stage {
+  position: absolute; top: 0; bottom: 0; right: 0; width: 64%; z-index: 0;
+  transform: translate3d(0, var(--py, 0px), 0);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 24%);
+  mask-image: linear-gradient(to right, transparent 0, #000 24%);
+}
+.slide {
+  position: absolute; inset: 5% 2% 0 0; opacity: 0; transform: scale(1.08);
+  transition: opacity 1.1s ease, transform 5s cubic-bezier(.15, .6, .2, 1);
+}
+.slide.is-on { opacity: 1; transform: scale(1); }
+.slide img {
+  width: 100%; height: 100%; object-fit: contain; object-position: 62% 100%;
+  transform-origin: 50% 100%; animation: sway var(--sway, 8s) ease-in-out infinite alternate;
+}
+.slide.s-wheat img { filter: brightness(.84) contrast(1.1); }
+@keyframes sway { from { transform: rotate(calc(var(--amp, 1deg) * -1)); } to { transform: rotate(var(--amp, 1deg)); } }
+.hero .dust { z-index: 1; }
+.hero-inner {
+  position: relative; z-index: 2; min-height: inherit;
+  display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); grid-template-rows: 1fr auto; gap: 32px;
+  padding-block: clamp(36px, 6vw, 88px) clamp(28px, 3vw, 44px);
+}
+.hero-copy { grid-column: 1; grid-row: 1; align-self: center; display: grid; gap: 26px; }
+.hero h1 { font-stretch: 75%; font-weight: 600; letter-spacing: -.012em; font-size: clamp(3.6rem, 9.4vw, 9.4rem); line-height: .86; }
+.hero h1 .ln { display: block; overflow: hidden; padding-bottom: .1em; margin-bottom: -.1em; }
+.hero h1 .ln > span { display: block; animation: rise 1.25s cubic-bezier(.2, .75, .15, 1) both; }
+.hero h1 .ln + .ln > span { animation-delay: .14s; color: var(--brass); }
+@keyframes rise { from { transform: translateY(110%); } to { transform: none; } }
+.hero-copy p { font-size: 1.15rem; line-height: 1.5; color: #CFC9C0; max-width: 30rem; animation: fadeUp 1s .5s var(--ease) both; }
+.hero-copy .text-link { animation: fadeUp 1s .65s var(--ease) both; }
+.text-link {
+  justify-self: start; text-decoration: none; font-weight: 500;
+  border-bottom: 1px solid currentColor; padding-bottom: 3px; transition: color .2s;
+}
+.text-link:hover { color: var(--brass); }
+
+.spec { grid-column: 2; grid-row: 1; justify-self: end; align-self: start; text-align: right; display: grid; gap: 4px; transition: opacity .45s ease, transform .45s ease; animation: fadeUp 1s .8s var(--ease) backwards; }
+.spec.out { opacity: 0; transform: translateY(-8px); }
+.spec p, .spec-link { text-shadow: 0 0 2px #000, 0 0 12px #000, 0 0 24px #000; }
+.spec-latin { font-size: .76rem; letter-spacing: .16em; text-transform: uppercase; font-stretch: 112%; color: var(--brass); }
+.spec-name { font-stretch: 75%; font-weight: 600; font-size: 2.3rem; line-height: 1; }
+.spec-alt { font-size: .92rem; color: var(--fog); }
+.spec-link { justify-self: end; margin-top: 10px; font-size: .95rem; border-bottom: 1px solid currentColor; padding-bottom: 2px; color: var(--flour); transition: color .2s; }
+.spec-link:hover { color: var(--brass); }
+
+.hero-tabs { grid-column: 1 / -1; grid-row: 2; display: flex; gap: clamp(16px, 3vw, 44px); animation: fadeUp 1s .9s var(--ease) both; }
+.hero-tabs button { display: grid; gap: 10px; min-width: clamp(60px, 9vw, 140px); text-align: left; color: var(--fog); font-size: .95rem; transition: color .3s; }
+.hero-tabs button:hover, .hero-tabs button[aria-selected="true"] { color: var(--flour); }
+.hero-tabs i { display: block; height: 2px; background: rgba(239, 237, 232, .18); position: relative; overflow: hidden; }
+.hero-tabs i::after { content: ""; position: absolute; inset: 0; background: var(--brass); transform: scaleX(0); transform-origin: left; }
+.hero-tabs button.run i::after { animation: fill var(--dur, 7s) linear forwards; }
+.hero-tabs button[aria-selected="true"]:not(.run) i::after { transform: scaleX(1); }
+@keyframes fill { to { transform: scaleX(1); } }
+
+/* ---------- ticker ---------- */
+.ticker { background: var(--black); color: var(--flour); overflow: hidden; border-top: 1px solid var(--line-d); padding-block: clamp(18px, 2.2vw, 30px); }
+.ticker-track { display: flex; width: max-content; animation: tick 90s linear infinite; }
+.ticker-group { display: flex; align-items: baseline; gap: clamp(26px, 3.2vw, 52px); padding-right: clamp(26px, 3.2vw, 52px); white-space: nowrap; }
+.ticker b { font-stretch: 75%; font-weight: 600; font-size: clamp(2.2rem, 5.2vw, 4.8rem); line-height: 1.05; text-transform: uppercase; letter-spacing: .01em; }
+.ticker span { font-size: clamp(1.3rem, 3vw, 2.8rem); color: var(--brass); line-height: 1.2; }
+@keyframes tick { to { transform: translateX(-50%); } }
+
+/* ---------- method ---------- */
+.method { background: var(--black); border-top: 1px solid var(--line-d); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.method-text {
+  padding-block: clamp(64px, 8.5vw, 136px);
+  padding-left: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+  padding-right: clamp(28px, 5vw, 88px);
+}
+.method-lead {
+  font-weight: 500; font-stretch: 88%; letter-spacing: -.006em;
+  font-size: clamp(1.7rem, 3.15vw, 3rem); line-height: 1.1; max-width: 25ch; text-wrap: balance;
+}
+.steps {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px;
+  margin-top: clamp(44px, 5.5vw, 80px); padding-top: 22px; border-top: 1px solid var(--line-d);
+}
+.steps h3 { font-stretch: 75%; font-weight: 600; font-size: 2rem; line-height: 1; margin-bottom: 10px; }
+.steps p { font-size: 1rem; color: var(--fog); }
+.method-img { position: relative; min-height: 560px; }
+.method-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 24% 62%; opacity: 0; }
+/* The seven brass shots share one set-up, so a hard cut between them looks like the grain changing inside the same tumbler. */
+.method-img img.on { opacity: 1; }
+
+/* ---------- flours ---------- */
+.flours { background: var(--black); border-top: 1px solid var(--line-d); padding-block: clamp(64px, 8vw, 124px); }
+.flours-head {
+  display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 20px 56px; align-items: end;
+  margin-bottom: clamp(32px, 4vw, 56px);
+}
+.flours-head h2 { font-stretch: 75%; font-weight: 600; font-size: clamp(3.2rem, 8vw, 7.4rem); line-height: .86; letter-spacing: -.01em; }
+.flours-head p { color: var(--fog); max-width: 34ch; font-size: 1.08rem; }
+.shop { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 5fr) minmax(0, 4fr); border-top: 1px solid var(--fog); }
+.flour-list { border-right: 1px solid var(--line-d); }
+.flour-list li { border-bottom: 1px solid var(--line-d); }
+.flour-btn {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 3px 12px;
+  width: 100%; text-align: left; padding: 15px 16px 13px 0;
+  transition: background-color .25s, color .25s, padding .35s var(--ease);
+}
+.flour-btn b { font-stretch: 75%; font-weight: 600; font-size: clamp(1.7rem, 2.4vw, 2.35rem); line-height: 1; }
+.flour-btn small { grid-column: 1; font-size: .86rem; color: var(--fog); line-height: 1.3; }
+.flour-btn .p { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-size: .95rem; color: var(--fog); }
+.flour-btn:hover { background: rgba(239, 237, 232, .07); padding-left: 12px; }
+.flour-btn[aria-selected="true"] { background: var(--flour); color: var(--black); padding-left: 16px; }
+.flour-btn[aria-selected="true"] small, .flour-btn[aria-selected="true"] .p { color: #5E5852; }
+
+.gallery { padding: 24px; display: grid; gap: 12px; align-content: start; border-right: 1px solid var(--line-d); }
+.main-img { aspect-ratio: 1600 / 1455; overflow: hidden; background: var(--black); }
+.main-img img { width: 100%; height: 100%; object-fit: cover; transition: opacity .35s ease, transform 1.2s var(--ease); }
+.main-img:hover img { transform: scale(1.035); }
+.main-img img.fading { opacity: 0; transform: scale(1.06); transition-duration: .25s, .25s; }
+.thumbs { display: flex; gap: 10px; align-items: center; }
+.thumbs button { width: 76px; aspect-ratio: 1; overflow: hidden; opacity: .55; transition: opacity .2s; }
+.thumbs button:hover { opacity: .9; }
+.thumbs button[aria-pressed="true"] { opacity: 1; box-shadow: 0 0 0 2px var(--black), 0 0 0 4px var(--flour); }
+.thumbs img { width: 100%; height: 100%; object-fit: cover; }
+.thumbs p { margin-left: 8px; font-size: .9rem; color: var(--fog); }
+
+.info { padding: 24px 0 24px 28px; display: grid; gap: 22px; align-content: start; }
+.info > * { animation: fadeUp .6s var(--ease) both; }
+.info > :nth-child(2) { animation-delay: .05s; }
+.info > :nth-child(3) { animation-delay: .1s; }
+.info > :nth-child(4) { animation-delay: .15s; }
+.info > :nth-child(5) { animation-delay: .2s; }
+.info > :nth-child(6) { animation-delay: .25s; }
+.info > :nth-child(n+7) { animation-delay: .3s; }
+.info-sub { font-size: .98rem; color: var(--fog); margin-bottom: 6px; }
+.info-name { font-stretch: 75%; font-weight: 600; font-size: clamp(3.2rem, 5.2vw, 5rem); line-height: .86; letter-spacing: -.01em; }
+.names { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 18px; border-top: 1px solid var(--line-d); padding-top: 16px; }
+.names dt { color: var(--fog); }
+.names dd { font-size: 1.32rem; font-weight: 500; line-height: 1.35; }
+.taste { font-size: 1.22rem; line-height: 1.4; }
+.uses { display: grid; gap: 4px; }
+.uses .label, .sizes legend { color: var(--fog); }
+.uses p { font-size: 1.02rem; }
+.gluten { font-size: .92rem; color: var(--fog); }
+.sizes legend { padding: 0; margin-bottom: 8px; }
+.size-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.sizes label { position: relative; display: block; cursor: pointer; }
+.sizes input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.sizes .opt {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 8px;
+  border: 1px solid var(--fog); padding: 12px 14px 10px; transition: background-color .2s, color .2s;
+}
+.sizes .opt b { font-weight: 600; }
+.sizes label:hover .opt { background: rgba(239, 237, 232, .08); }
+.sizes input:checked + .opt { background: var(--flour); border-color: var(--flour); color: var(--black); }
+.sizes input:focus-visible + .opt { outline: 2px solid var(--brass); outline-offset: 2px; }
+.buy { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px; }
+.qty { display: flex; align-items: stretch; border: 1px solid var(--fog); height: 54px; }
+.qty button { width: 44px; font-size: 1.35rem; line-height: 1; transition: background-color .15s; }
+.qty button:hover { background: rgba(239, 237, 232, .1); }
+.qty output { min-width: 34px; display: grid; place-items: center; font-weight: 600; }
+.add {
+  position: relative; overflow: hidden; isolation: isolate;
+  height: 54px; background: var(--flour); color: var(--black); font-weight: 600; font-size: 1.02rem;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 18px;
+}
+.add::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--brass); transform: scaleX(0); transform-origin: left; transition: transform .45s var(--ease); }
+.add:hover::before { transform: scaleX(1); }
+.add.pop { animation: pop .5s var(--ease); }
+@keyframes pop { 30% { transform: scale(.97); } 100% { transform: none; } }
+.added { min-height: 1.5em; font-size: .95rem; color: var(--brass); }
+.added a { font-weight: 600; }
+
+/* ---------- order ---------- */
+.order { background: var(--black); border-top: 1px solid var(--line-d); padding-block: clamp(64px, 8vw, 124px); }
+.order-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: clamp(36px, 6vw, 104px); }
+.order-how { display: grid; gap: 22px; align-content: start; }
+.order-how h2 { font-stretch: 75%; font-weight: 600; font-size: clamp(3.2rem, 8vw, 7.4rem); line-height: .86; letter-spacing: -.01em; }
+.order-how p { font-size: 1.2rem; line-height: 1.45; max-width: 32ch; }
+.basket { border-top: 2px solid var(--flour); padding-top: 18px; display: grid; gap: 18px; align-content: start; }
+.basket-head { display: flex; justify-content: space-between; align-items: baseline; }
+.basket-head h3 { font-stretch: 75%; font-weight: 600; font-size: 2rem; line-height: 1; }
+.basket-head span { color: var(--fog); font-size: .95rem; }
+.lines li {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 6px 18px; align-items: center;
+  padding: 14px 0; border-bottom: 1px solid var(--line-d); animation: fadeUp .45s var(--ease) both;
+}
+.lines .ln-name b { display: block; font-weight: 600; font-size: 1.08rem; }
+.lines .ln-name small { color: var(--fog); font-size: .9rem; }
+.lines .qty { height: 40px; }
+.lines .qty button { width: 34px; font-size: 1.1rem; }
+.lines .qty output { min-width: 28px; }
+.lines .ln-price { min-width: 64px; text-align: right; font-weight: 600; }
+.lines .ln-remove { grid-column: 1; justify-self: start; font-size: .88rem; color: var(--fog); text-decoration: underline; text-underline-offset: 3px; }
+.lines .ln-remove:hover { color: var(--flour); }
+.empty { color: var(--fog); padding: 18px 0; border-bottom: 1px solid var(--line-d); }
+.total { display: flex; justify-content: space-between; align-items: baseline; }
+.total span:first-child { font-size: 1.05rem; }
+.total b { font-stretch: 75%; font-weight: 600; font-size: 2.6rem; line-height: 1; }
+.send {
+  position: relative; overflow: hidden; isolation: isolate;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px; width: 100%; text-align: left;
+  background: var(--flour); color: var(--black); text-decoration: none; padding: 19px 20px 17px;
+  font-weight: 600; font-size: 1.05rem;
+}
+.send::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--brass); transform: scaleX(0); transform-origin: left; transition: transform .45s var(--ease); }
+.send:hover::before { transform: scaleX(1); }
+.send span:last-child { transition: transform .35s var(--ease); }
+.send:hover span:last-child { transform: translateX(6px); }
+.send[aria-disabled="true"] { background: transparent; color: var(--fog); box-shadow: inset 0 0 0 1px var(--line-d); pointer-events: none; }
+
+/* ---------- footer ---------- */
+footer { background: var(--black); border-top: 1px solid var(--line-d); color: var(--fog); padding-block: 56px 44px; font-size: .95rem; }
+.foot-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr) minmax(0, 3fr); gap: 28px 48px; align-items: end; }
+.foot-grid .mark { color: var(--flour); font-size: 2.6rem; }
+.foot-grid .mark span { font-size: 1.5rem; }
+.foot-nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.foot-nav a { text-decoration: none; transition: color .2s; }
+.foot-nav a:hover { color: var(--flour); }
+.foot-grid p:last-child { text-align: right; }
+
+/* ---------- phone-only pieces (hidden on wide screens) ---------- */
+.menu-btn, .menu, .m-shop, .m-bar { display: none; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1180px) {
+  .shop { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); }
+  .flour-list { grid-row: 1 / span 2; }
+  .gallery { border-right: 0; padding-bottom: 8px; }
+  .info { grid-column: 2; padding: 8px 24px 24px; }
+}
+@media (max-width: 860px) {
+  /* Phone: a full-height poster. Story-style bars on top, swipe to change grain, big type at the bottom. */
+  .hero { min-height: max(560px, calc(100svh - 64px)); touch-action: pan-y; }
+  .stage {
+    width: 100%;
+    -webkit-mask-image: linear-gradient(to bottom, #000 52%, transparent 86%);
+    mask-image: linear-gradient(to bottom, #000 52%, transparent 86%);
+  }
+  .slide { inset: 4% -16% 24% -4%; }
+  .slide img { object-position: 64% 40%; }
+  .slide.s-ragi { inset: 15% -30% auto -12%; height: auto; aspect-ratio: 1207 / 880; }
+  .slide.s-ragi img {
+    object-position: 50% 100%;
+    -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 97%);
+    mask-image: linear-gradient(to bottom, #000 60%, transparent 97%);
+  }
+  .hero-inner { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr auto; gap: 14px; padding-block: 14px 30px; }
+  .hero-tabs { grid-row: 1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+  .hero-tabs button { min-width: 0; gap: 9px; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; font-stretch: 112%; }
+  .hero-tabs i { order: -1; }
+  .spec { grid-column: 1; grid-row: 2; justify-self: start; text-align: left; margin-top: 6px; }
+  .spec-link { justify-self: start; }
+  .spec-name { font-size: 1.9rem; }
+  .spec-alt { display: none; }
+  .hero-copy { grid-column: 1; grid-row: 4; align-self: end; gap: 16px; }
+  .hero h1 { font-size: clamp(3.6rem, 19.5vw, 6.4rem); line-height: .84; }
+  .hero-copy p { font-size: 1rem; line-height: 1.45; }
+  .method { grid-template-columns: minmax(0, 1fr); }
+  .method-text { padding-left: var(--gutter); padding-right: var(--gutter); }
+  .method-img { order: -1; min-height: 0; aspect-ratio: 1 / 1; }
+  .steps { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .flours-head { grid-template-columns: minmax(0, 1fr); }
+  .shop { grid-template-columns: minmax(0, 1fr); }
+  .flour-list {
+    grid-row: auto; border-right: 0; border-bottom: 1px solid var(--line-d);
+    display: flex; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none;
+  }
+  .flour-list::-webkit-scrollbar { display: none; }
+  .flour-list li { flex: 0 0 auto; border-bottom: 0; border-right: 1px solid var(--line-d); scroll-snap-align: start; }
+  .flour-btn, .flour-btn:hover, .flour-btn[aria-selected="true"] { padding: 12px 16px 10px; }
+  .flour-btn .p { display: none; }
+  .flour-btn b { font-size: 1.6rem; }
+  .gallery { padding: 16px 0 4px; }
+  .info { grid-column: auto; padding: 12px 0 0; }
+  .order-grid { grid-template-columns: minmax(0, 1fr); }
+  .foot-grid { grid-template-columns: minmax(0, 1fr); align-items: start; }
+  .foot-grid p:last-child { text-align: left; }
+  .top nav a:not(.nav-order) { display: none; }
+
+  /* menu: full-screen sheet under the header */
+  .top nav { align-items: center; gap: 24px; }
+  .menu-btn { display: block; padding: 10px 0 10px 6px; font-size: .97rem; color: var(--flour); -webkit-tap-highlight-color: transparent; }
+  .menu {
+    display: flex; flex-direction: column; justify-content: space-between; gap: 32px;
+    position: fixed; z-index: 19; top: 64px; left: 0; right: 0; bottom: 0; overflow-y: auto;
+    background: var(--black); padding: 8px var(--gutter) calc(28px + env(safe-area-inset-bottom, 0px));
+    opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility 0s .3s;
+  }
+  .menu-open .menu { opacity: 1; visibility: visible; transition: opacity .3s ease; }
+  .menu-open body { overflow: hidden; }
+  .menu-links a { display: block; overflow: hidden; text-decoration: none; border-bottom: 1px solid var(--line-d); padding: 12px 0 6px; -webkit-tap-highlight-color: transparent; }
+  .menu-links span {
+    display: block; font-stretch: 75%; font-weight: 600; line-height: 1; letter-spacing: -.01em;
+    font-size: clamp(3rem, 15.5vw, 5.6rem);
+    transform: translateY(105%); transition: transform .7s cubic-bezier(.2, .75, .15, 1);
+    transition-delay: calc(var(--i) * 70ms + 60ms);
+  }
+  .menu-links a:last-child span { color: var(--brass); }
+  .menu-links a:active span { color: var(--brass); }
+  .menu-open .menu-links span { transform: none; }
+  .menu-foot { color: var(--fog); max-width: 30ch; font-size: .95rem; }
+
+  /* flours: one swipeable card per flour instead of the three-column picker */
+  .shop { display: none; }
+  .m-shop { display: block; }
+  .m-index {
+    display: flex; gap: 22px; overflow-x: auto; scrollbar-width: none;
+    margin: 0 calc(var(--gutter) * -1) 20px; padding: 0 var(--gutter);
+    border-bottom: 1px solid var(--line-d);
+  }
+  .m-index button { position: relative; flex: 0 0 auto; padding: 10px 0 12px; white-space: nowrap; color: var(--fog); transition: color .25s; -webkit-tap-highlight-color: transparent; }
+  .m-index button::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--brass); transform: scaleX(0); transition: transform .35s var(--ease); }
+  .m-index button[aria-current="true"] { color: var(--flour); }
+  .m-index button[aria-current="true"]::after { transform: scaleX(1); }
+  .m-track {
+    position: relative; display: flex; gap: 14px; overflow-x: auto; scrollbar-width: none;
+    scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+    margin: 0 calc(var(--gutter) * -1); padding: 0 var(--gutter); scroll-padding-inline: var(--gutter);
+  }
+  .m-index::-webkit-scrollbar, .m-track::-webkit-scrollbar { display: none; }
+  .m-card { flex: 0 0 min(84%, 440px); scroll-snap-align: start; scroll-snap-stop: always; display: grid; gap: 14px; align-content: start; opacity: calc(1 - var(--k, 0) * .55); }
+  .m-photo { aspect-ratio: 1; overflow: hidden; background: var(--black); }
+  .m-photo img { width: 100%; height: 100%; object-fit: cover; transform: translateX(calc(var(--d, 0) * -9%)) scale(1.2); }
+  .m-sub { color: var(--fog); font-size: .95rem; }
+  .m-name { font-stretch: 75%; font-weight: 600; font-size: clamp(3rem, 14vw, 4.4rem); line-height: .86; letter-spacing: -.01em; margin-top: 2px; }
+  .m-names { display: flex; flex-wrap: wrap; gap: 2px 14px; color: var(--brass); font-size: 1.12rem; line-height: 1.4; }
+  .m-taste { font-size: 1.06rem; line-height: 1.42; }
+  .m-uses { font-size: .95rem; color: var(--fog); }
+  .m-uses .label { display: block; margin-bottom: 2px; }
+  .m-add { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px; }
+  .m-add button {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 8px; text-align: left;
+    border: 1px solid var(--fog); padding: 12px 12px 10px; transition: background-color .2s, color .2s, border-color .2s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .m-add button b { font-weight: 600; }
+  .m-add button em { grid-column: 1 / -1; font-style: normal; font-size: .84rem; color: var(--brass); transition: color .2s; }
+  .m-add button:active, .m-add button.done { background: var(--flour); border-color: var(--flour); color: var(--black); }
+  .m-add button:active em, .m-add button.done em { color: #5E5852; }
+  .m-gluten { font-size: .88rem; color: var(--fog); }
+
+  /* running order, pinned to the bottom once something is in it */
+  .m-bar {
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    position: fixed; z-index: 18; left: 0; right: 0; bottom: 0;
+    padding: 15px var(--gutter) calc(15px + env(safe-area-inset-bottom, 0px));
+    background: var(--flour); color: var(--black); text-decoration: none; font-weight: 600;
+    transform: translateY(110%); visibility: hidden;
+    transition: transform .45s var(--ease), visibility 0s .45s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .m-bar.show { transform: none; visibility: visible; transition: transform .45s var(--ease); }
+  .menu-open .m-bar { transform: translateY(110%); }
+  .m-bar-sum { display: flex; gap: 12px; align-items: baseline; }
+  .m-bar-sum span { font-stretch: 75%; font-size: 1.5rem; line-height: 1; }
+  .m-bar.bump .m-bar-sum { animation: pop .5s var(--ease); }
+}
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .names dd { font-size: 1.15rem; }
+  .thumbs button { width: 64px; }
+  .lines li { grid-template-columns: minmax(0, 1fr) auto; }
+  .lines .ln-price { grid-column: 2; grid-row: 1; }
+  .lines .qty { grid-column: 2; grid-row: 2; justify-self: end; }
+  .lines .ln-remove { grid-row: 2; }
+}
+/* Reduced motion keeps the gentle, ambient motion (fades, slow sway, drifting dust, the ticker)
+   and drops what moves the page around: parallax, zooms, slide-ins and wipes. */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .slide, .slide.is-on { transform: none; transition: opacity 1.1s ease; }
+  .stage { transform: none; }
+  .px img { transform: none; }
+  .hero h1 .ln > span { animation-name: fadeIn; }
+  .js .rv { transform: none; transition: opacity 1.1s ease; transition-delay: calc(var(--i, 0) * 90ms); }
+  .js .rv-clip { clip-path: none; opacity: 0; transition: opacity 1.2s ease; }
+  .js .rv-clip.in, .rv-all .rv-clip { opacity: 1; }
+  .ticker-track { animation-duration: 160s; }
+  .main-img:hover img { transform: none; }
+  .m-photo img { transform: scale(1.02); }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Saat, home">Saat<span lang="hi">सात</span></a>
+    <nav aria-label="Main">
+      <a href="#flours">Flours</a>
+      <a href="#method">How we roast</a>
+      <a href="#order" class="nav-order">Order <span class="tnum" id="navCount"></span></a>
+      <button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
+    </nav>
+  </div>
+</header>
+
+<div class="menu" id="menu">
+  <nav class="menu-links" aria-label="Sections">
+    <a href="#flours" style="--i: 0"><span>Flours</span></a>
+    <a href="#method" style="--i: 1"><span>How we roast</span></a>
+    <a href="#order" style="--i: 2"><span>Order</span></a>
+  </nav>
+  <p class="menu-foot">Seven flours, roasted at home and ground in small batches.</p>
+</div>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="stage" id="stage" data-px="1.1">
+      <figure class="slide s-wheat is-on" style="--sway: 9s; --amp: .9deg"><img src="img/hero-wheat.webp" alt="A golden ear of wheat, its long awns lit against black"></figure>
+      <figure class="slide s-ragi" style="--sway: 7.5s; --amp: 1.1deg"><img src="img/hero-ragi.webp" alt="A ragi head, its fingers packed with red-brown grain"></figure>
+      <figure class="slide s-jowar" style="--sway: 10s; --amp: .7deg"><img src="img/hero-jowar.webp" alt="A tall head of jowar, dense with yellow and green grain"></figure>
+      <figure class="slide s-rice" style="--sway: 8.5s; --amp: 1.2deg"><img src="img/hero-rice.webp" alt="A rice panicle bending under the weight of its grain"></figure>
+    </div>
+    <canvas class="dust" id="heroDust" aria-hidden="true"></canvas>
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <h1 id="hero-h"><span class="ln"><span>Roasted first.</span></span><span class="ln"><span>Then ground.</span></span></h1>
+        <p>Seven flours from one home kitchen. Every batch of grain is dry-roasted until it smells nutty, then milled, so the flour cooks faster and tastes of the grain it came from.</p>
+        <a class="text-link" href="#flours">Choose a flour</a>
+      </div>
+      <div class="spec" id="spec" aria-live="polite">
+        <p class="spec-latin" id="specLatin">Triticum aestivum</p>
+        <p class="spec-name" id="specName">Wheat</p>
+        <p class="spec-alt" id="specAlt">Gehun, godhi, gothumai</p>
+        <button type="button" class="spec-link" id="specLink" data-id="wheat">See the wheat flour</button>
+      </div>
+      <div class="hero-tabs" id="heroTabs" role="tablist" aria-label="Grain photographs">
+        <button type="button" role="tab" aria-selected="true">Wheat<i></i></button>
+        <button type="button" role="tab" aria-selected="false">Ragi<i></i></button>
+        <button type="button" role="tab" aria-selected="false">Jowar<i></i></button>
+        <button type="button" role="tab" aria-selected="false">Rice<i></i></button>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+
+  <section class="flours" id="flours" aria-labelledby="flours-h">
+    <div class="wrap">
+      <div class="flours-head">
+        <h2 id="flours-h" class="rv">The flours</h2>
+        <p class="rv" style="--i: 1">Pick one to see how it tastes and what it's for. Every flour comes in 500 g and 1 kg packs.</p>
+      </div>
+      <div class="shop rv" style="--i: 2">
+        <ul class="flour-list" id="flourList" role="tablist" aria-label="Flours"></ul>
+        <div class="gallery">
+          <div class="main-img"><img id="mainImg" src="img/ragi-spoon.webp" alt=""></div>
+          <div class="thumbs" id="thumbs"></div>
+        </div>
+        <div class="info" id="detail" role="tabpanel" aria-live="polite"></div>
+      </div>
+      <div class="m-shop rv" style="--i: 2">
+        <div class="m-index" id="mIndex" aria-label="Jump to a flour"></div>
+        <div class="m-track" id="mTrack" role="region" aria-label="Flours, swipe for more"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="method" id="method" aria-labelledby="method-h">
+    <div class="method-text">
+      <h2 class="method-lead rv" id="method-h">Raw flour tastes raw. Roasting the grain first gives the flour a nutty smell, takes away that raw edge, and helps it keep longer in the tin.</h2>
+      <div class="steps">
+        <div class="rv" style="--i: 1"><h3>Cleaned</h3><p>The grain is sieved, picked over by hand, washed and dried in the sun.</p></div>
+        <div class="rv" style="--i: 2"><h3>Roasted</h3><p>Dry-roasted a few kilos at a time on a low flame, stirred until it turns a shade darker.</p></div>
+        <div class="rv" style="--i: 3"><h3>Ground</h3><p>Milled once it has cooled, sieved, and packed the same day.</p></div>
+      </div>
+    </div>
+    <figure class="method-img px rv-clip" id="flick" data-px=".7">
+      <img class="on" src="img/rice-brass.webp" alt="Each grain in turn: whole grain in a brass tumbler beside a brass bowl of its flour" data-id="rice" loading="lazy">
+      <img src="img/wheat-brass.webp" alt="" data-id="wheat" loading="lazy">
+      <img src="img/little-millet-brass.webp" alt="" data-id="little-millet" loading="lazy">
+      <img src="img/sorghum-brass.webp" alt="" data-id="sorghum" loading="lazy">
+      <img src="img/foxtail-brass.webp" alt="" data-id="foxtail" loading="lazy">
+      <img src="img/pearl-millet-brass.webp" alt="" data-id="pearl-millet" loading="lazy">
+      <img src="img/ragi-brass.webp" alt="" data-id="ragi" loading="lazy">
+    </figure>
+  </section>
+
+  <section class="order" id="order" aria-labelledby="order-h">
+    <div class="wrap order-grid">
+      <div class="order-how rv">
+        <h2 id="order-h">Order</h2>
+        <p>Add flours above and they collect here. Check your packs and the total, then buy.</p>
+      </div>
+      <div class="basket rv" style="--i: 1">
+        <div class="basket-head"><h3>Your order</h3><span class="tnum" id="basketCount"></span></div>
+        <ul class="lines" id="lines"></ul>
+        <p class="empty" id="empty">Nothing added yet. Choose a flour above and add it here.</p>
+        <div class="total"><span>Total</span><b class="tnum" id="total">₹0</b></div>
+        <button type="button" class="send" id="send" aria-disabled="true"><span>Buy now</span><span aria-hidden="true">&rarr;</span></button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<a class="m-bar" id="mBar" href="#order"><span class="m-bar-sum"><b class="tnum" id="mBarCount"></b><span class="tnum" id="mBarTotal"></span></span><span>View order &rarr;</span></a>
+
+<footer>
+  <div class="wrap foot-grid">
+    <a class="mark" href="#top">Saat<span lang="hi">सात</span></a>
+    <nav class="foot-nav" aria-label="Footer">
+      <a href="#flours">Flours</a><a href="#method">How we roast</a><a href="#order">Order</a>
+    </nav>
+    <p>Home-roasted flours, made in small batches.<br>&copy; 2026 Saat</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Ordered light to dark.
+  var FLOURS = [
+    { id: "rice", name: "Rice", sub: "Rice flour", grain: "rice",
+      names: { Hindi: "चावल", Kannada: "ಅಕ್ಕಿ", Tamil: "அரிசி", Telugu: "బియ్యం" }, tick: "Tamil",
+      taste: "Soft, white and neutral. It fries crisp and steams soft.",
+      uses: "Akki rotti, pathiri, kozhukattai and modak, murukku, and crisp batters.",
+      gluten: "Gluten-free grain.", sizes: [["500 g", 70], ["1 kg", 130]] },
+    { id: "wheat", name: "Wheat", sub: "Whole wheat atta", grain: "wheat",
+      names: { Hindi: "गेहूँ", Kannada: "ಗೋಧಿ", Tamil: "கோதுமை", Telugu: "గోధుమలు" }, tick: "Hindi",
+      taste: "Roasting gives everyday atta a toasted, biscuity smell.",
+      uses: "Phulka and chapati, paratha, atte ka sheera, atte ke laddoo and panjiri.",
+      gluten: "Contains gluten.", sizes: [["500 g", 60], ["1 kg", 110]] },
+    { id: "little-millet", name: "Little millet", sub: "Kutki, samai, saame", grain: "little millet",
+      names: { Hindi: "कुटकी", Kannada: "ಸಾಮೆ", Tamil: "சாமை", Telugu: "సామలు" }, tick: "Kannada",
+      taste: "Mild and a little sweet. The lightest of the millets.",
+      uses: "Dosa, rotti, porridge and laddoo.",
+      gluten: "Gluten-free grain.", sizes: [["500 g", 140], ["1 kg", 270]] },
+    { id: "sorghum", name: "Jowar", sub: "Sorghum flour", grain: "jowar",
+      names: { Hindi: "ज्वार", Kannada: "ಜೋಳ", Tamil: "சோளம்", Telugu: "జొన్నలు" }, tick: "Telugu",
+      taste: "Mild and slightly sweet. Rolls out soft while the dough is warm.",
+      uses: "Jowar bhakri, jolada rotti, thalipeeth and uttapam.",
+      gluten: "Gluten-free grain.", sizes: [["500 g", 80], ["1 kg", 150]] },
+    { id: "foxtail", name: "Foxtail millet", sub: "Kangni, thinai, navane", grain: "foxtail millet",
+      names: { Hindi: "कंगनी", Kannada: "ನವಣೆ", Tamil: "தினை", Telugu: "కొర్రలు" }, tick: "Tamil",
+      taste: "Light and nutty, with a golden colour once it's roasted.",
+      uses: "Dosa, adai, roti and laddoo.",
+      gluten: "Gluten-free grain.", sizes: [["500 g", 130], ["1 kg", 250]] },
+    { id: "pearl-millet", name: "Bajra", sub: "Pearl millet flour", grain: "bajra",
+      names: { Hindi: "बाजरा", Kannada: "ಸಜ್ಜೆ", Tamil: "கம்பு", Telugu: "సజ్జలు" }, tick: "Hindi",
+      taste: "Strong and earthy. A winter flour, best with ghee and jaggery.",
+      uses: "Bajre ki roti, bhakri, raab, thalipeeth and malida.",
+      gluten: "Gluten-free grain.", sizes: [["500 g", 75], ["1 kg", 140]] },
+    { id: "ragi", name: "Ragi", sub: "Finger millet flour", grain: "ragi",
+      names: { Hindi: "रागी", Kannada: "ರಾಗಿ", Tamil: "கேழ்வரகு", Telugu: "రాగులు" }, tick: "Kannada",
+      taste: "Deep and earthy. It turns a dark cocoa brown when cooked.",
+      uses: "Ragi mudde, ragi dosa, ragi malt, rotti and laddoo.",
+      gluten: "Gluten-free grain.", sizes: [["500 g", 90], ["1 kg", 170]] }
+  ];
+  var LANG = { Hindi: "hi", Kannada: "kn", Tamil: "ta", Telugu: "te" };
+
+  var HERO = [
+    { id: "wheat", name: "Wheat", latin: "Triticum aestivum", alt: "Gehun, godhi, gothumai" },
+    { id: "ragi", name: "Ragi", latin: "Eleusine coracana", alt: "Finger millet, nachni, kezhvaragu" },
+    { id: "sorghum", name: "Jowar", latin: "Sorghum bicolor", alt: "Sorghum, jola, cholam" },
+    { id: "rice", name: "Rice", latin: "Oryza sativa", alt: "Chawal, akki, arisi" }
+  ];
+
+  var byId = {};
+  FLOURS.forEach(function (f) { byId[f.id] = f; });
+  function rupee(n) { return "₹" + n.toLocaleString("en-IN"); }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function alt(f, view) {
+    return view === "spoon"
+      ? f.name + " flour heaped on a wooden spoon, with whole " + f.grain + " scattered around it"
+      : "Whole " + f.grain + " in a brass tumbler beside a brass bowl of " + f.name.toLowerCase() + " flour";
+  }
+  function goToFlours() {
+    document.getElementById("flours").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+  }
+  var phone = window.matchMedia("(max-width: 860px)");
+  function pick(id) { select(id); mGo(id); goToFlours(); }
+
+  /* ---------- flour dust ---------- */
+  function Dust(canvas, o) {
+    var ctx = canvas.getContext("2d");
+    var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    var w = 0, h = 0, parts = [], raf = 0, last = 0, on = false;
+    var mx = 0, my = 0, ox = 0, oy = 0;
+    var sprite = document.createElement("canvas");
+    sprite.width = sprite.height = 64;
+    var sg = sprite.getContext("2d");
+    var g = sg.createRadialGradient(32, 32, 0, 32, 32, 32);
+    g.addColorStop(0, "rgba(255,242,220,1)");
+    g.addColorStop(.3, "rgba(255,234,200,.5)");
+    g.addColorStop(1, "rgba(255,226,186,0)");
+    sg.fillStyle = g; sg.fillRect(0, 0, 64, 64);
+
+    function make(anywhere) {
+      var z = Math.random(), big = Math.random() < .07;
+      return {
+        x: Math.random() * w, y: anywhere ? Math.random() * h : h + 20, z: z,
+        r: big ? 10 + Math.random() * 16 : .7 + z * z * 2.8,
+        a: (big ? .05 + Math.random() * .05 : .14 + Math.random() * .5) * o.alpha,
+        vx: (Math.random() - .35) * .16 * (.35 + z), vy: -(.04 + Math.random() * .2) * (.35 + z),
+        ph: Math.random() * 6.283, f: .4 + Math.random() * .9
+      };
+    }
+    function resize() {
+      var r = canvas.getBoundingClientRect();
+      w = r.width; h = r.height;
+      canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      var n = Math.round(Math.min(o.max, (w * h) / o.density));
+      parts = [];
+      for (var i = 0; i < n; i++) parts.push(make(true));
+      if (!on) draw(0);
+    }
+    function light(x) { var t = x / w; return o.lightRight ? .3 + .7 * t * t : 1; }
+    function draw(dt) {
+      ctx.clearRect(0, 0, w, h);
+      ox += (mx - ox) * .03; oy += (my - oy) * .03;
+      for (var i = 0; i < parts.length; i++) {
+        var p = parts[i];
+        if (dt) {
+          p.ph += dt * .0007 * p.f;
+          p.x += (p.vx + Math.sin(p.ph) * .07) * dt * .06;
+          p.y += (p.vy + Math.cos(p.ph * .7) * .03) * dt * .06;
+          if (p.y < -30 || p.x < -30 || p.x > w + 30) { parts[i] = make(false); parts[i].x = Math.random() * w; continue; }
+        }
+        var x = p.x + ox * 18 * p.z, y = p.y + oy * 12 * p.z;
+        ctx.globalAlpha = p.a * (.7 + .3 * Math.sin(p.ph * 1.9)) * light(x);
+        var d = p.r * 4;
+        ctx.drawImage(sprite, x - d / 2, y - d / 2, d, d);
+      }
+      ctx.globalAlpha = 1;
+    }
+    function frame(t) {
+      var dt = last ? Math.min(48, t - last) : 16;
+      last = t; draw(reduceMotion ? dt * .5 : dt);
+      raf = requestAnimationFrame(frame);
+    }
+    function start() { if (on) return; on = true; last = 0; raf = requestAnimationFrame(frame); }
+    function stop() { on = false; cancelAnimationFrame(raf); }
+    resize();
+    window.addEventListener("resize", resize);
+    if (o.follow) {
+      window.addEventListener("pointermove", function (e) {
+        mx = e.clientX / window.innerWidth - .5; my = e.clientY / window.innerHeight - .5;
+      }, { passive: true });
+    }
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (es) { es[0].isIntersecting ? start() : stop(); }).observe(canvas);
+    } else start();
+    document.addEventListener("visibilitychange", function () { document.hidden ? stop() : start(); });
+  }
+  new Dust(document.getElementById("heroDust"), { max: 150, density: 7000, alpha: 1, lightRight: true, follow: true });
+
+  /* ---------- hero slideshow ---------- */
+  var slides = document.querySelectorAll("#stage .slide");
+  var tabs = document.querySelectorAll("#heroTabs button");
+  var spec = document.getElementById("spec");
+  // The first grain changes early so even a visitor who scrolls straight on sees the photos move.
+  var FIRST_MS = 2000, SLIDE_MS = 2800, firstSlide = true;
+  var cur = 0, timer = 0, heroVisible = true;
+  function wait() { return firstSlide ? FIRST_MS : SLIDE_MS; }
+
+  function runBar(i) {
+    document.getElementById("heroTabs").style.setProperty("--dur", wait() / 1000 + "s");
+    Array.prototype.forEach.call(tabs, function (b) { b.classList.remove("run"); });
+    void tabs[i].offsetWidth;
+    tabs[i].classList.add("run");
+  }
+  function schedule() {
+    clearTimeout(timer);
+    if (!heroVisible || document.hidden) return;
+    timer = setTimeout(function () { show((cur + 1) % slides.length); }, wait());
+  }
+  function show(i) {
+    if (i !== cur) {
+      firstSlide = false;
+      slides[cur].classList.remove("is-on");
+      slides[i].classList.add("is-on");
+      tabs[cur].setAttribute("aria-selected", "false");
+      tabs[i].setAttribute("aria-selected", "true");
+      cur = i;
+      var h = HERO[i];
+      spec.classList.add("out");
+      setTimeout(function () {
+        document.getElementById("specLatin").textContent = h.latin;
+        document.getElementById("specName").textContent = h.name;
+        document.getElementById("specAlt").textContent = h.alt;
+        var link = document.getElementById("specLink");
+        link.textContent = "See the " + h.name.toLowerCase() + " flour";
+        link.dataset.id = h.id;
+        spec.classList.remove("out");
+      }, 420);
+    }
+    runBar(i);
+    schedule();
+  }
+  Array.prototype.forEach.call(tabs, function (b, i) { b.addEventListener("click", function () { show(i); }); });
+  document.getElementById("specLink").addEventListener("click", function () { pick(this.dataset.id); });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (es) {
+      var v = es[0].isIntersecting;
+      if (v === heroVisible) return;
+      heroVisible = v;
+      if (v) show(cur); else { clearTimeout(timer); Array.prototype.forEach.call(tabs, function (b) { b.classList.remove("run"); }); }
+    }, { threshold: .25 }).observe(document.querySelector(".hero"));
+  }
+  document.addEventListener("visibilitychange", function () { if (!document.hidden && heroVisible) show(cur); else clearTimeout(timer); });
+  var heroEl = document.querySelector(".hero"), tx = 0, ty = 0, tt = 0;
+  heroEl.addEventListener("touchstart", function (e) { var t = e.touches[0]; tx = t.clientX; ty = t.clientY; tt = Date.now(); }, { passive: true });
+  heroEl.addEventListener("touchend", function (e) {
+    var t = e.changedTouches[0], dx = t.clientX - tx, dy = t.clientY - ty;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.4 && Date.now() - tt < 900) {
+      show((cur + (dx < 0 ? 1 : slides.length - 1)) % slides.length);
+    }
+  }, { passive: true });
+  show(0);
+
+  /* ---------- how we roast: brass photos cut from grain to grain ---------- */
+  var flick = document.getElementById("flick");
+  var flickImgs = flick.querySelectorAll("img");
+  var FLICK_MS = 180;
+  var fi = 0, fTimer = 0, fVisible = false, fHover = false, fReady = false;
+  function flickTo(i) {
+    flickImgs[fi].classList.remove("on");
+    flickImgs[i].classList.add("on");
+    fi = i;
+  }
+  function flickLoop() {
+    clearTimeout(fTimer);
+    if (!fReady || !fVisible || fHover || document.hidden) return;
+    fTimer = setTimeout(function () { flickTo((fi + 1) % flickImgs.length); flickLoop(); }, FLICK_MS);
+  }
+  function loaded(img) {
+    var p = (img.complete && img.naturalWidth) ? Promise.resolve() : new Promise(function (res) {
+      img.addEventListener("load", res, { once: true });
+      img.addEventListener("error", res, { once: true });
+    });
+    return p.then(function () { return img.decode ? img.decode().catch(function () {}) : null; });
+  }
+  // Start cutting only once every frame is decoded, so no cut lands on a blank.
+  Promise.all(Array.prototype.map.call(flickImgs, loaded)).then(function () { fReady = true; flickLoop(); });
+  flick.addEventListener("pointerenter", function (e) { if (e.pointerType === "mouse") { fHover = true; flickLoop(); } });
+  flick.addEventListener("pointerleave", function () { fHover = false; flickLoop(); });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (es) { fVisible = es[0].isIntersecting; flickLoop(); }).observe(flick);
+  } else { fVisible = true; }
+  document.addEventListener("visibilitychange", flickLoop);
+
+  /* ---------- ticker ---------- */
+  var tickHTML = FLOURS.map(function (f) {
+    return "<b>" + esc(f.name) + '</b><span lang="' + LANG[f.tick] + '">' + f.names[f.tick] + "</span>";
+  }).join("");
+  document.getElementById("ticker").innerHTML =
+    '<div class="ticker-group">' + tickHTML + '</div><div class="ticker-group">' + tickHTML + "</div>";
+
+  /* ---------- flour picker ---------- */
+  var state = { id: "ragi", view: "spoon", size: 0, qty: 1 };
+  var list = document.getElementById("flourList");
+  list.innerHTML = FLOURS.map(function (f) {
+    return '<li role="presentation"><button class="flour-btn" role="tab" id="tab-' + f.id + '" aria-controls="detail" aria-selected="false" data-id="' + f.id + '">' +
+      '<b>' + esc(f.name) + '</b><small>' + esc(f.sub) + '</small><span class="p tnum">from ' + rupee(f.sizes[0][1]) + '</span></button></li>';
+  }).join("");
+  list.addEventListener("click", function (e) {
+    var b = e.target.closest(".flour-btn");
+    if (b) select(b.dataset.id);
+  });
+  list.addEventListener("keydown", function (e) {
+    if (e.key !== "ArrowRight" && e.key !== "ArrowLeft" && e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+    e.preventDefault();
+    var i = FLOURS.findIndex(function (f) { return f.id === state.id; });
+    i = (i + ((e.key === "ArrowRight" || e.key === "ArrowDown") ? 1 : -1) + FLOURS.length) % FLOURS.length;
+    select(FLOURS[i].id);
+    document.getElementById("tab-" + FLOURS[i].id).focus();
+  });
+
+  var mainImg = document.getElementById("mainImg");
+  function showImage() {
+    var f = byId[state.id];
+    var src = "img/" + f.id + "-" + state.view + ".webp";
+    if (mainImg.getAttribute("src") === src) { mainImg.alt = alt(f, state.view); return; }
+    mainImg.classList.add("fading");
+    var next = new Image();
+    next.onload = next.onerror = function () {
+      setTimeout(function () {
+        mainImg.src = src; mainImg.alt = alt(f, state.view);
+        requestAnimationFrame(function () { mainImg.classList.remove("fading"); });
+      }, 180);
+    };
+    next.src = src;
+  }
+
+  function renderThumbs() {
+    var f = byId[state.id];
+    document.getElementById("thumbs").innerHTML = ["spoon", "brass"].map(function (v) {
+      return '<button type="button" data-view="' + v + '" aria-pressed="' + (state.view === v) + '" aria-label="' + (v === "spoon" ? "Show the flour on a spoon" : "Show the grain and flour in brass") + '">' +
+        '<img src="img/' + f.id + '-' + v + '.webp" alt=""></button>';
+    }).join("") + '<p>' + (state.view === "spoon" ? "Flour on the spoon, grain around it" : "Grain in the tumbler, flour in the bowl") + '</p>';
+  }
+  document.getElementById("thumbs").addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-view]");
+    if (!b) return;
+    state.view = b.dataset.view; renderThumbs(); showImage();
+  });
+
+  var detail = document.getElementById("detail");
+  function renderDetail() {
+    var f = byId[state.id];
+    var names = Object.keys(f.names).map(function (k) {
+      return '<div><dt class="label">' + k + '</dt><dd lang="' + LANG[k] + '">' + f.names[k] + '</dd></div>';
+    }).join("");
+    var sizes = f.sizes.map(function (s, i) {
+      return '<label><input type="radio" name="size" id="size-' + i + '" value="' + i + '"' + (i === state.size ? " checked" : "") + '>' +
+        '<span class="opt"><b>' + s[0] + '</b><span class="tnum">' + rupee(s[1]) + '</span></span></label>';
+    }).join("");
+    detail.setAttribute("aria-labelledby", "tab-" + f.id);
+    detail.innerHTML =
+      '<div><p class="info-sub">' + esc(f.sub) + '</p><h3 class="info-name">' + esc(f.name) + '</h3></div>' +
+      '<dl class="names">' + names + '</dl>' +
+      '<p class="taste">' + esc(f.taste) + '</p>' +
+      '<div class="uses"><span class="label">Cook it as</span><p>' + esc(f.uses) + '</p></div>' +
+      '<fieldset class="sizes"><legend class="label">Pack size</legend><div class="size-opts">' + sizes + '</div></fieldset>' +
+      '<div class="buy"><div class="qty" role="group" aria-label="Number of packs">' +
+        '<button type="button" data-q="-1" aria-label="One fewer pack">&minus;</button>' +
+        '<output id="qtyOut" class="tnum" aria-live="polite">' + state.qty + '</output>' +
+        '<button type="button" data-q="1" aria-label="One more pack">+</button></div>' +
+        '<button type="button" class="add" id="addBtn"><span>Add to order</span><span class="tnum" id="addPrice">' + rupee(f.sizes[state.size][1] * state.qty) + '</span></button></div>' +
+      '<p class="gluten">' + esc(f.gluten) + '</p>' +
+      '<p class="added" id="added"></p>';
+  }
+  function updateAddPrice() {
+    var f = byId[state.id];
+    document.getElementById("qtyOut").textContent = state.qty;
+    document.getElementById("addPrice").textContent = rupee(f.sizes[state.size][1] * state.qty);
+  }
+  detail.addEventListener("change", function (e) {
+    if (e.target.name === "size") { state.size = Number(e.target.value); updateAddPrice(); }
+  });
+  detail.addEventListener("click", function (e) {
+    var q = e.target.closest("button[data-q]");
+    if (q) { state.qty = Math.max(1, Math.min(20, state.qty + Number(q.dataset.q))); updateAddPrice(); return; }
+    var add = e.target.closest("#addBtn");
+    if (add) {
+      addToOrder();
+      add.classList.remove("pop"); void add.offsetWidth; add.classList.add("pop");
+    }
+  });
+
+  function select(id) {
+    if (!byId[id]) return;
+    state.id = id; state.view = "spoon"; state.size = 0; state.qty = 1;
+    Array.prototype.forEach.call(list.querySelectorAll(".flour-btn"), function (b) {
+      var on = b.dataset.id === id;
+      b.setAttribute("aria-selected", on);
+      b.tabIndex = on ? 0 : -1;
+      if (on && window.matchMedia("(max-width: 860px)").matches) {
+        list.scrollTo({ left: b.parentNode.offsetLeft - 16, behavior: "smooth" });
+      }
+    });
+    renderThumbs(); showImage(); renderDetail();
+  }
+
+  /* ---------- phone: swipeable flour cards ---------- */
+  var mTrack = document.getElementById("mTrack"), mIndex = document.getElementById("mIndex");
+  mTrack.innerHTML = FLOURS.map(function (f) {
+    var names = Object.keys(f.names).map(function (k) { return '<span lang="' + LANG[k] + '">' + f.names[k] + '</span>'; }).join("");
+    var add = f.sizes.map(function (sz, i) {
+      return '<button type="button" data-id="' + f.id + '" data-size="' + i + '" aria-label="Add one ' + sz[0] + ' pack of ' + esc(f.name) + ', ' + rupee(sz[1]) + '">' +
+        '<b>' + sz[0] + '</b><span class="tnum">' + rupee(sz[1]) + '</span><em>Add to order</em></button>';
+    }).join("");
+    return '<article class="m-card" id="m-' + f.id + '" aria-label="' + esc(f.name) + '">' +
+      '<div class="m-photo"><img data-src="img/' + f.id + '-spoon-m.webp" alt="' + esc(alt(f, "spoon")) + '"></div>' +
+      '<p class="m-sub">' + esc(f.sub) + '</p><h3 class="m-name">' + esc(f.name) + '</h3>' +
+      '<p class="m-names">' + names + '</p>' +
+      '<p class="m-taste">' + esc(f.taste) + '</p>' +
+      '<p class="m-uses"><span class="label">Cook it as</span>' + esc(f.uses) + '</p>' +
+      '<div class="m-add">' + add + '</div>' +
+      '<p class="m-gluten">' + esc(f.gluten) + '</p></article>';
+  }).join("");
+  mIndex.innerHTML = FLOURS.map(function (f) { return '<button type="button" data-id="' + f.id + '">' + esc(f.name) + '</button>'; }).join("");
+  var mCards = mTrack.querySelectorAll(".m-card"), mPad = 0, mCur = "", mTick = false;
+  function mPadding() { mPad = parseFloat(getComputedStyle(mTrack).paddingLeft) || 0; }
+  function mUpdate() {
+    mTick = false;
+    var left = mTrack.getBoundingClientRect().left + mPad, best = 0, bestD = 1e9;
+    Array.prototype.forEach.call(mCards, function (c, i) {
+      var r = c.getBoundingClientRect(), d = r.width ? (r.left - left) / r.width : 0;
+      d = Math.max(-1, Math.min(1, d));
+      c.style.setProperty("--d", d.toFixed(3));
+      c.style.setProperty("--k", Math.abs(d).toFixed(3));
+      if (Math.abs(d) < bestD) { bestD = Math.abs(d); best = i; }
+    });
+    // The last card can't scroll all the way to the left edge, so a track scrolled to its end means the last flour.
+    if (mTrack.scrollLeft > 2 && mTrack.scrollLeft >= mTrack.scrollWidth - mTrack.clientWidth - 2) best = mCards.length - 1;
+    var id = FLOURS[best].id;
+    if (id !== mCur) {
+      mCur = id;
+      Array.prototype.forEach.call(mIndex.children, function (b) {
+        var on = b.dataset.id === id;
+        b.setAttribute("aria-current", on);
+        if (on) mIndex.scrollTo({ left: b.offsetLeft - mPad, behavior: "smooth" });
+      });
+    }
+  }
+  function mGo(id) {
+    var c = document.getElementById("m-" + id);
+    if (c && phone.matches) { mTrack.scrollTo({ left: c.offsetLeft - mPad, behavior: "auto" }); mUpdate(); }
+  }
+  mTrack.addEventListener("scroll", function () { if (!mTick) { mTick = true; requestAnimationFrame(mUpdate); } }, { passive: true });
+  window.addEventListener("resize", function () { mPadding(); mUpdate(); });
+  mIndex.addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-id]");
+    if (!b) return;
+    var c = document.getElementById("m-" + b.dataset.id);
+    mTrack.scrollTo({ left: c.offsetLeft - mPad, behavior: reduceMotion ? "auto" : "smooth" });
+  });
+  mTrack.addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-size]");
+    if (!b) return;
+    addLine(b.dataset.id, Number(b.dataset.size), 1);
+    var em = b.querySelector("em");
+    b.classList.add("done"); em.textContent = "Added";
+    clearTimeout(b._t);
+    b._t = setTimeout(function () { b.classList.remove("done"); em.textContent = "Add to order"; }, 1300);
+  });
+  // Card photos load only when the cards come near the screen (never on desktop, where they're hidden).
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (es, o) {
+      if (!es[0].isIntersecting) return;
+      Array.prototype.forEach.call(mTrack.querySelectorAll("img[data-src]"), function (img) { img.src = img.dataset.src; img.removeAttribute("data-src"); });
+      o.disconnect();
+    }, { rootMargin: "900px 0px" }).observe(mTrack);
+  } else {
+    Array.prototype.forEach.call(mTrack.querySelectorAll("img[data-src]"), function (img) { img.src = img.dataset.src; });
+  }
+  mPadding(); mUpdate();
+
+  /* ---------- phone: menu and order bar ---------- */
+  var root = document.documentElement, menuBtn = document.getElementById("menuBtn");
+  function setMenu(open) {
+    root.classList.toggle("menu-open", open);
+    menuBtn.setAttribute("aria-expanded", open);
+    menuBtn.textContent = open ? "Close" : "Menu";
+  }
+  menuBtn.addEventListener("click", function () { setMenu(!root.classList.contains("menu-open")); });
+  document.getElementById("menu").addEventListener("click", function (e) { if (e.target.closest("a")) setMenu(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
+  if (phone.addEventListener) phone.addEventListener("change", function (e) { if (!e.matches) setMenu(false); mPadding(); mUpdate(); });
+
+  var mBar = document.getElementById("mBar"), orderCount = 0, orderBelow = true;
+  function barState() { mBar.classList.toggle("show", orderCount > 0 && orderBelow); }
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (es) {
+      orderBelow = !es[0].isIntersecting && es[0].boundingClientRect.top > 0;
+      barState();
+    }).observe(document.getElementById("order"));
+  }
+
+  /* ---------- order ---------- */
+  var KEY = "saat-order-v1";
+  var order = [];
+  try { order = JSON.parse(localStorage.getItem(KEY)) || []; } catch (err) { order = []; }
+  order = order.filter(function (l) { return byId[l.id] && byId[l.id].sizes[l.size]; });
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(order)); } catch (err) {} }
+
+  function addLine(id, size, qty) {
+    var line = order.find(function (l) { return l.id === id && l.size === size; });
+    if (line) line.qty = Math.min(50, line.qty + qty);
+    else order.push({ id: id, size: size, qty: qty });
+    save(); renderOrder();
+    mBar.classList.remove("bump"); void mBar.offsetWidth; mBar.classList.add("bump");
+  }
+  function addToOrder() {
+    var f = byId[state.id];
+    addLine(state.id, state.size, state.qty);
+    document.getElementById("added").innerHTML = "Added " + state.qty + " × " + esc(f.name) + ", " + f.sizes[state.size][0] + '. <a href="#order">See your order</a>';
+  }
+
+  function renderOrder() {
+    var count = 0, total = 0;
+    var html = order.map(function (l, i) {
+      var f = byId[l.id], s = f.sizes[l.size];
+      count += l.qty; total += s[1] * l.qty;
+      return '<li><div class="ln-name"><b>' + esc(f.name) + '</b><small>' + esc(f.sub) + ', ' + s[0] + ' · ' + rupee(s[1]) + ' each</small></div>' +
+        '<div class="qty" role="group" aria-label="Packs of ' + esc(f.name) + ', ' + s[0] + '">' +
+          '<button type="button" data-line="' + i + '" data-d="-1" aria-label="One fewer">&minus;</button>' +
+          '<output class="tnum">' + l.qty + '</output>' +
+          '<button type="button" data-line="' + i + '" data-d="1" aria-label="One more">+</button></div>' +
+        '<span class="ln-price tnum">' + rupee(s[1] * l.qty) + '</span>' +
+        '<button type="button" class="ln-remove" data-remove="' + i + '">Remove</button></li>';
+    }).join("");
+    document.getElementById("lines").innerHTML = html;
+    document.getElementById("empty").hidden = order.length > 0;
+    document.getElementById("total").textContent = rupee(total);
+    document.getElementById("navCount").textContent = count ? "(" + count + ")" : "";
+    document.getElementById("basketCount").textContent = count ? count + (count === 1 ? " pack" : " packs") : "";
+    document.getElementById("mBarCount").textContent = count + (count === 1 ? " pack" : " packs");
+    document.getElementById("mBarTotal").textContent = rupee(total);
+    orderCount = count; barState();
+
+    // Sample site: "Buy now" only lights up when there's something in the order. Pressing it does nothing.
+    document.getElementById("send").setAttribute("aria-disabled", order.length ? "false" : "true");
+  }
+  document.getElementById("lines").addEventListener("click", function (e) {
+    var b = e.target.closest("button");
+    if (!b) return;
+    if (b.dataset.remove != null) order.splice(Number(b.dataset.remove), 1);
+    else if (b.dataset.line != null) {
+      var l = order[Number(b.dataset.line)];
+      l.qty += Number(b.dataset.d);
+      if (l.qty < 1) order.splice(Number(b.dataset.line), 1);
+      else if (l.qty > 50) l.qty = 50;
+    }
+    save(); renderOrder();
+  });
+
+  select("ragi");
+  renderOrder();
+
+  /* ---------- scroll reveals ---------- */
+  var reveal = document.querySelectorAll(".rv, .rv-clip");
+  if (!("IntersectionObserver" in window)) {
+    Array.prototype.forEach.call(reveal, function (el) { el.classList.add("in"); });
+  } else {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: .08 });
+    Array.prototype.forEach.call(reveal, function (el) { io.observe(el); });
+  }
+
+  /* ---------- parallax ---------- */
+  var pxEls = document.querySelectorAll("[data-px]");
+  var ticking = false;
+  function parallax() {
+    ticking = false;
+    var vh = window.innerHeight;
+    Array.prototype.forEach.call(pxEls, function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.bottom < -100 || r.top > vh + 100) return;
+      var c = (r.top + r.height / 2 - vh / 2) / vh;
+      el.style.setProperty("--py", (c * -parseFloat(el.dataset.px) * 60).toFixed(1) + "px");
+    });
+  }
+  if (!reduceMotion) {
+    window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(parallax); } }, { passive: true });
+    window.addEventListener("resize", parallax);
+    parallax();
+  }
+
+  window.__saatReady = true;
+})();
+</script>
+</body>
+</html>
